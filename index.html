@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+   <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body ng-app="test" ng-controller="empcontroller">
+    <br />
+    <br />
+    <table>
+        <tbody>
+            <tr>
+                <td>Time Zone: </td>
+                <td><input type="text" ng-model="id"/></td>
+            </tr>
+            <tr>
+                <td>City name: </td>
+                <td><input type="text" ng-model="name"/></td>
+            </tr>
+            <tr> 
+                <td><input type="button" 
+                ng-click="btnclk()" value="Save"/></td>
+                <td><input type="button" 
+                ng-click="btnupd(id,name)" value="Update"/></td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+              <tr>
+                  <td>Time zone:</td>
+                  <td>Location name:</td>
+                  <td>Current time is:
+                  <span my-current-time="format"></span>
+                  </td>
+              </tr>
+       </thead>
+       <div>
+       </div>
+        <tbody ng-repeat="emp in emparr">
+            <tr>
+         
+                <td ng-bind="emp.arr_id"></td>
+                <td ng-bind="emp.arr_name"></td>
+                <td my-current-time="format"></td>
+                <td><input type="button" 
+                ng-click="edit(emp,emparr.indexOf(emp))" value="Edit"/></td>
+                <td><input type="button" 
+                ng-click="del(emparr.indexOf(emp))" value="Delete"/></td>
+            </tr>
+        </tbody>
+    </table>
+    </body> 
+    </html>
